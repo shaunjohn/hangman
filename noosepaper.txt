@@ -1,0 +1,12 @@
+dog
+cat
+bird
+frog
+monkey
+horse
+kangaroo
+eagle
+dragon
+lobster
+dolphin
+leopard

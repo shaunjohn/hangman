@@ -1,16 +1,17 @@
 class Hangman
-	attr_accessor :secret_word, :chances_taken, :hidden_answer, :past_attempts, :set_chances
+	attr_reader :secret_word, :hidden_answer, :set_chances
+	attr_accessor :chances_taken, :past_attempts
 
-	def initialize(secret_word)
-		@secret_word = secret_word
+	def initialize
 		@chances_taken = 0 # initialized to zero wrong guesses to start
 		@set_chances = 5 #set total of wrong guesses in hangman game
-		@hidden_answer = secret_word.split('') #transformed secret word into array of characters
 		@past_attempts = [] #empty array to hold total guesses of words AND letters
 		start
 	end
 
 	def start
+	  @secret_word = File.readlines("./noosepaper.txt").sample.chomp #randomly selects from a file
+	  @hidden_answer = secret_word.split('') #transformed secret word into array of characters
 		puts "Whaddup and let's play!\nI know a secret word...\n\n"
 		gameplay
 	end
@@ -68,5 +69,5 @@ class Hangman
 	end
 end
 
-game = Hangman.new("pikachu")
+game = Hangman.new #randomly chose a word from a txt file
 game
